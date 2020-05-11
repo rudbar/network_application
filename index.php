@@ -11,13 +11,13 @@ $query = mysqli_query($con, "INSERT INTO test VALUES(NULL, 'Optimus Prime')");
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Network</title>
 </head>
 <body>
-    Hello Ian!!!!!
+    Привет Ян
 </body>
 </html>
