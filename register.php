@@ -1,7 +1,7 @@
 <?php 
 require 'config/config.php';
+require 'includes/form_handlers/login_handler.php';
 require 'includes/form_handlers/register_handler.php';
-
 ?>
 
 
@@ -13,6 +13,14 @@ require 'includes/form_handlers/register_handler.php';
     <title>Welcome here!</title>
 </head>
 <body>
+
+    <form action="register.php" method="POST" accept-charset="UTF-8">
+        <input type="email" name="log_email" placeholder="Email Адрес">
+        <br>
+        <input type="password" name="log_password" placeholder="Пароль">
+        <br>
+        <input type="submit" name="login_button" value="Войти">
+    </form>
     
     <form action="register.php" method="POST" accept-charset="UTF-8">
         <input type="text" name="reg_fname" placeholder="Имя" value="<?php 
