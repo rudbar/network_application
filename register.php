@@ -1,7 +1,7 @@
 <?php 
 require 'config/config.php';
-require 'includes/form_handlers/login_handler.php';
 require 'includes/form_handlers/register_handler.php';
+require 'includes/form_handlers/login_handler.php';
 ?>
 
 
@@ -11,15 +11,24 @@ require 'includes/form_handlers/register_handler.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome here!</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/register_style.css">
 </head>
 <body>
 
     <form action="register.php" method="POST" accept-charset="UTF-8">
-        <input type="email" name="log_email" placeholder="Email Адрес">
+        <input type="email" name="log_email" placeholder="Email Адрес" value="<?php 
+        if(isset($_SESSION['log_email'])) {
+            echo $_SESSION['log_email'];
+        } 
+        ?>" required>
         <br>
         <input type="password" name="log_password" placeholder="Пароль">
         <br>
         <input type="submit" name="login_button" value="Войти">
+        <br>
+
+        <?php if(in_array("Неправильный Email или пароль<br>", $error_array)) echo  "Неправильный Email или пароль<br>"; ?>
+
     </form>
     
     <form action="register.php" method="POST" accept-charset="UTF-8">
