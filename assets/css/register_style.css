@@ -1,10 +1,10 @@
 @font-face {
-    font-family: 'SanFranciscoDisplay-LightItalic';
-    src: url('../fonts/SanFranciscoDisplay-LightItalic.otf');
+    font-family: 'SanFranciscoText-LightItalic';
+    src: url('../fonts/SanFranciscoText-LightItalic.otf');
 }
 @font-face {
-    font-family: 'SanFranciscoDisplay-BoldItalic';
-    src: url('../fonts/SanFranciscoDisplay-BoldItalic.otf');
+    font-family: 'SanFranciscoText-BoldItalic';
+    src: url('../fonts/SanFranciscoText-BoldItalic.otf');
 }
 
 html, body {
@@ -21,6 +21,11 @@ body {
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color: #4267b2;
+}
+
 .wrapper {
     background-image: url(../images/backgrounds/desktop.jpg);
     background: cover;
@@ -30,7 +35,7 @@ body {
 }
 
 .login_box {
-    font-family: 'SanFranciscoDisplay-LightItalic', sans-serif;
+    font-family: 'SanFranciscoText-LightItalic', sans-serif;
     position: relative;
     margin: 0 auto;
     margin-top: 7%;
@@ -43,7 +48,7 @@ body {
 }
 
 .login_header {
-    font-family: 'SanFranciscoDisplay-LightItalic', sans-serif;
+    font-family: 'SanFranciscoText-LightItalic', sans-serif;
     width: 100%;
     height: 90px;
     background-color: #4267b2;
@@ -54,9 +59,54 @@ body {
 }
 
 .login_header h1 {
-    font-family: 'SanFranciscoDisplay-BoldItalic', sans-serif;
+    font-family: 'SanFranciscoText-BoldItalic', sans-serif;
     margin-top: 0;
     margin-bottom: 0;
     text-shadow: #000 0.5px 0.5px 0px;
     font-size: 250%;
 }
+
+input[type="submit"] {
+    background-color: #4267b2;
+    border: 1px solid #4267b2;
+    border-radius: 3px;
+    margin: 5px 0 10px 0;
+    padding: 5px 10px 5px 10px;
+    color: #fff;
+    text-shadow: #000 0.5px 0.5px 0px;
+    font-family: 'SanFranciscoText-BoldItalic', sans-serif;
+    font-size: 100%;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    border: 1px solid #e5e5e5;
+    margin-top: 5px;
+    width: 70%;
+    height: 35px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
+    border-color: #4267b2;
+}
+
+#second {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
