@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'SanFranciscoText-LightItalic';
+    src: url('../fonts/SanFranciscoText-LightItalic.otf');
+}
+@font-face {
+    font-family: 'SanFranciscoText-BoldItalic';
+    src: url('../fonts/SanFranciscoText-BoldItalic.otf');
+}
+
+body {
+    line-height: 17px;
+    background-color: #D3D8E8;
+}
+
+.top_bar {
+    width: 100%;
+    min-width: 1050px;
+    height: 40px;
+    background-color: #4267b2;
+    border-bottom: 1px solid #1c1e21;
+    margin: 0 0 10px 0;
+    display: inline-flex;
+    position: fixed;
+    z-index: 10;
+}
+
+.logo a{
+    font-family: 'SanFranciscoText-BoldItalic', sans-serif;
+    margin-left: 10px;
+    font-size: 30px;
+    position: relative;
+    top: 9px;
+    text-shadow: #000 0.5px 0.5px 0px;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+nav {
+    float: right;
+    right: 1px;
+    position: absolute;
+    margin: 10px;
+}
+
+nav a{
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #b12a20;
+    color: #fff;
+}
+
+.wrapper {
+    margin: 0 auto;
+    top: 50px;
+    position: relative;
+    padding: 0 10px;
+    width: 75%;
+    min-width: 950px;
+}
+
+.column {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #D3D3D3;
+    z-index: -1;
+}
+
+.user_details {
+    width: 250px;
+    float: left;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

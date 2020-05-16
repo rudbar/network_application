@@ -1,16 +1,13 @@
 <?php 
-require 'config/config.php';
+include ("includes/header.php");
 
 ?>
+    <div class="user_details column">
+        <a href="#"> <img src="<?php echo $user['profile_pic']; ?>"> </a>
+    </div>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network</title>
-</head>
-<body>
-    Привет Ян
+
+
+    </div>
 </body>
 </html>
