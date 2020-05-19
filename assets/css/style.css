@@ -12,6 +12,11 @@ body {
     background-color: #D3D8E8;
 }
 
+a {
+    color: #4267b2;
+    text-decoration: none;
+}
+
 .top_bar {
     width: 100%;
     min-width: 1050px;
@@ -142,6 +147,7 @@ textarea:focus {
     font-size: 15px;
     padding: 0 5px;
     min-height: 75px;
+    cursor: pointer;
 }
 
 .post_profile_pic {
@@ -168,6 +174,7 @@ textarea:focus {
 }
 
 #comment_form textarea {
+    border-color: #D3D3D3;
     width: 85%;
     height: 35px;
     border-radius: 5px;
@@ -178,7 +185,15 @@ textarea:focus {
 
 #comment_form input[type="submit"] {
     border: none;
-    
+    background-color: #4267b2;
+    color: #fff;
+    border-radius: 5px;
+    width: 12%;
+    height: 40px;
+    margin-top: 3px;
+    position: absolute;
+    font-family: 'SanFranciscoText-BoldItalic', sans-serif;
+    text-shadow: #000 0.5px 0.5px 0px;
 }
 
 
