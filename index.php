@@ -72,7 +72,6 @@ if(isset($_POST['post'])){
 
 			if (($(window).scrollTop() == $(document).height() - $(window).height()) && noMorePosts == 'false') {
 				$('#loading').show();
-                alert("hello");
 
 				var ajaxReq = $.ajax({
 					url: "includes/handlers/ajax_load_posts.php",

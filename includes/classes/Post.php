@@ -51,13 +51,13 @@ class Post {
 			$start = ($page - 1) * $limit;
 
 
-		$str = ""; //String to return 
+		$str = ""; //Возвращаемая строка 
 		$data_query = mysqli_query($this->con, "SELECT * FROM posts WHERE deleted='no' ORDER BY id DESC");
 
 		if(mysqli_num_rows($data_query) > 0) {
 
 
-			$num_iterations = 0; //Number of results checked (not necasserily posted)
+			$num_iterations = 0;
 			$count = 1;
 
 			while($row = mysqli_fetch_array($data_query)) {
@@ -66,7 +66,6 @@ class Post {
 				$added_by = $row['added_by'];
 				$date_time = $row['date_added'];
 
-				//Prepare user_to string so it can be included even if not posted to a user
 				if($row['user_to'] == "none") {
 					$user_to = "";
 				}
@@ -76,19 +75,20 @@ class Post {
 					$user_to = "to <a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>";
 				}
 
-				//Check if user who posted, has their account closed
+				//Проверка закрыт ли аккаунт у пользователя кто сделал пост
 				$added_by_obj = new User($this->con, $added_by);
 				if($added_by_obj->isClosed()) {
 					continue;
 				}
 
-				
+				$user_logged_obj = new User($this->con, $userLoggedIn);
+				if($user_logged_obj->isFriend($added_by)){
 
 					if($num_iterations++ < $start)
 						continue; 
 
 
-					//Once 10 posts have been loaded, break
+					//Остановка после загрузки 10 постов
 					if($count > $limit) {
 						break;
 					}
@@ -101,6 +101,22 @@ class Post {
 					$first_name = $user_row['first_name'];
 					$last_name = $user_row['last_name'];
 					$profile_pic = $user_row['profile_pic'];
+
+
+					?>
+					<script>
+					function toggle<?php echo $id; ?>() {
+
+						var element = document.getElementById("toggleComment<?php echo $id; ?>");
+
+						if(element.style.display == "block")
+							element.style.display = "none";
+						else
+							element.style.display = "block";
+					}
+
+					</script>
+					<?php
 
 
 					//Время
@@ -167,7 +183,7 @@ class Post {
 						}
 					}
 
-					$str .= "<div class='status_post'>
+					$str .= "<div class='status_post' onClick='javascript:toggle$id()'>
 								<div class='post_profile_pic'>
 									<img src='$profile_pic' width='50'>
 								</div>
@@ -181,7 +197,11 @@ class Post {
 								</div>
 
 							</div>
+							<div class='post_comment' id='toggleComment$id' style='display:none;'>
+								<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
+							</div>
 							<hr>";
+				}
 				
 
 			} //Конец while
@@ -190,7 +210,7 @@ class Post {
 				$str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'>
 							<input type='hidden' class='noMorePosts' value='false'>";
 			else 
-				$str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align: centre;'> No more posts to show! </p>";
+				$str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align: centre;'> Больше постов нет </p>";
 		}
 
 		echo $str;
