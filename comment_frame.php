@@ -1,3 +1,19 @@
+<?php 
+    require 'config/config.php';
+    include("includes/classes/User.php");
+    include("includes/classes/Post.php");
+
+
+    if (isset($_SESSION['username'])) {
+        $userLoggedIn = $_SESSION['username'];
+        $user_details_queyr = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
+        $user = mysqli_fetch_array($user_details_queyr);
+    }
+    else {
+        header("Location: register.php");
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -15,22 +31,7 @@
 
     </style>
 
-    <?php 
-    require 'config/config.php';
-    include("includes/classes/User.php");
-    include("includes/classes/Post.php");
-
-
-    if (isset($_SESSION['username'])) {
-        $userLoggedIn = $_SESSION['username'];
-        $user_details_queyr = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
-        $user = mysqli_fetch_array($user_details_queyr);
-    }
-    else {
-        header("Location: register.php");
-    }
-
-    ?>
+    
     <script>
         function toggle() {
             var element = document.getElementById("comment_section");
@@ -157,6 +158,9 @@
             </div>
             <?php
         }
+    }
+    else {
+        echo "<center><br><br>Нет комментариев!</center>";
     }
     
     ?>

@@ -162,6 +162,7 @@ textarea:focus {
 #comment_iframe {
     max-height: 250px;
     width: 100%;
+    margin-top: 5px;
 }
 
 .comment_section {
@@ -194,6 +195,35 @@ textarea:focus {
     position: absolute;
     font-family: 'SanFranciscoText-BoldItalic', sans-serif;
     text-shadow: #000 0.5px 0.5px 0px;
+}
+
+.newsfeedPostOptions {
+    padding: 0px;
+    text-decoration: none;
+    color: #4267b2;
+    border: none;
+}
+
+.newsfeedPostOptions iframe {
+    border: 0px;
+    height: 17px;
+    width: 120px;
+}
+
+.comment_like {
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    color: #4267b2;
+    padding: 0;
+    height: auto;
+    width: auto;
+    margin: 0;
+}
+
+.like_value {
+    display: inline;
+    font-size: 14px;
 }
 
 

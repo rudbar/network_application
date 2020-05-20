@@ -107,16 +107,24 @@ class Post {
 					<script>
 					function toggle<?php echo $id; ?>() {
 
-						var element = document.getElementById("toggleComment<?php echo $id; ?>");
+						var target = $(event.target);
+						if (!target.is("a")) {
+							var element = document.getElementById("toggleComment<?php echo $id; ?>");
 
-						if(element.style.display == "block")
-							element.style.display = "none";
-						else
-							element.style.display = "block";
+							if(element.style.display == "block")
+								element.style.display = "none";
+							else
+								element.style.display = "block";
+						}
+
+						
 					}
 
 					</script>
 					<?php
+
+					$comments_check = mysqli_query($this->con, "SELECT * FROM comments WHERE post_id='$id'");
+					$comments_check_num = mysqli_num_rows($comments_check);
 
 
 					//Время
@@ -194,6 +202,13 @@ class Post {
 								<div id='post_body'>
 									$body
 									<br>
+									<br>
+									<br>
+								</div>
+
+								<div class='newsfeedPostOptions'>
+									Комментарии($comments_check_num)&nbsp;&nbsp;&nbsp;
+									<iframe src='like.php?post_id=$id' scrolling='no'></iframe>
 								</div>
 
 							</div>
