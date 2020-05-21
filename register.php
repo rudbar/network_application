@@ -5,7 +5,6 @@ require 'includes/form_handlers/login_handler.php';
 ?>
 
 
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">

@@ -226,6 +226,40 @@ textarea:focus {
     font-size: 14px;
 }
 
+.profile_left {
+    top: -10px;
+    width: 17%;
+    max-width: 240px;
+    min-width: 130px;
+    height: 100%;
+    float: left;
+    position: relative;
+    background-color: #4267b2;
+    border-right: 1px solid #000;
+    color: #CBEAF8;
+    margin-right: 20px;
+}
+
+.profile_left img {
+    min-width: 80px;
+    width: 55%;
+    margin: 20px;
+    border: 1px solid #000;
+    border-radius: 100px;
+}
+
+.profile_info {
+    display: list-item;
+    background-color: #2980b9;
+    width: 100%;
+    padding: 10px 0 10px 0;
+}
+
+.profile_info p {
+    margin: 0 0 0 20px;
+    word-wrap: break-word;
+}
+
 
 
 
