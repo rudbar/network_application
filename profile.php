@@ -1,5 +1,7 @@
 <?php 
-include ("includes/header.php");
+include("includes/header.php");
+include("includes/classes/User.php");
+include("includes/classes/Post.php");
 
 
 if(isset($_GET['profile_username'])) {
@@ -28,6 +30,36 @@ if(isset($_GET['profile_username'])) {
             <p><?php echo "Отметки нравится: " . $user_array['num_likes']; ?></p>
             <p><?php echo "Друзья: " . $num_friends; ?></p>
         </div>
+
+        <form action="<?php echo $username; ?>">
+            <?php 
+            $profile_user_obj = new User($con, $username); 
+            if($profile_user_obj->isClosed()) {
+                header("Location: user_closed.php");
+            }
+
+            $logged_in_user_obj = new User($con, $userLoggedIn);
+
+            if($userLoggedIn != $username) {
+
+                if($logged_in_user_obj->isFriend($username)) {
+                    echo '<input type="submit" name="remove_friend" class="danger" value="Удалить из друзей"><br>';
+                }
+                else if ($logged_in_user_obj->didReceiveRequest($username)) {
+                    echo '<input type="submit" name="respond_request" class="warning" value="Ответить на запрос"><br>';
+                }
+                else if ($logged_in_user_obj->didSendRequest($username)) {
+                    echo '<input type="submit" name="" class="default" value="Запрос отправлен"><br>';
+                }
+                else
+                    echo '<input type="submit" name="add_friend" class="success" value="Добавить в друзья"><br>';
+
+            }
+            
+            ?>
+
+
+        </form>
     
     </div>
 
