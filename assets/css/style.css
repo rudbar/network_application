@@ -234,10 +234,12 @@ textarea:focus {
     height: 100%;
     float: left;
     position: relative;
-    background-color: #4267b2;
+    background-color: #3b5998;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
     border-right: 1px solid #000;
     color: #CBEAF8;
     margin-right: 20px;
+    opacity: 0.95;
 }
 
 .profile_left img {
@@ -260,38 +262,67 @@ textarea:focus {
     word-wrap: break-word;
 }
 
+.profile_left input[type="submit"] {
+    width: 90%;
+    height: 30px;
+    border-radius: 4px;
+    font-size: 12.5px;
+    margin: 7px 0 0 7px;
+    border: none;
+}
+
 .danger {
-    background-color: #e74c3c;
+    background-color: #dfe6ed;
+    color: #55677d;
 }
 
 .warning {
-    background-color: #f0ad4e;
+    background-color: #dfe6ed;
+    color: #55677d;
 }
 
 .default {
-    background-color: #bdc3c7;
+    background-color: #dfe6ed;
+    color: #55677d;
 }
 
 .success {
-    background-color: #2ecc71;
+    background-color: #5b88bd;
+    color: #fff;
 }
 
 .info {
     background-color: #3498db;
+    color: #fff;
 }
 
 .deep_blue {
     background-color: #0043f0;
-}
-
-.profile_left input[type="submit"] {
-    width: 90%;
-    height: 30px;
-    border-radius: 5px;
-    margin: 7px 0 0 7px;
-    border: none;
     color: #fff;
 }
+
+#accept_button {
+    width: 20%;
+    height: 28px;
+    border-radius: 4px;
+    margin: 5px;
+    border: none;
+    color: #fff;
+    background-color: #4267b2;
+}
+
+#ignore_button {
+    width: 20%;
+    height: 28px;
+    border-radius: 4px;
+    margin: 5px;
+    border: none;
+    color: #4267b2;
+    background-color: #dfe6ed;
+}
+
+
+
 
 
 

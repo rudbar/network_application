@@ -1,7 +1,6 @@
 <?php 
 include("includes/header.php");
-include("includes/classes/User.php");
-include("includes/classes/Post.php");
+
 
 
 if(isset($_GET['profile_username'])) {
@@ -68,11 +67,11 @@ if(isset($_POST['respond_request'])) {
                     echo '<input type="submit" name="add_friend" class="success" value="Добавить в друзья"><br>';
 
             }
-            
+
             ?>
-
-
         </form>
+
+        <input type="submit" class="success" data-toggle="modal" data-target="#post_form" value="Оставить запись">
     
     </div>
 
@@ -80,10 +79,41 @@ if(isset($_POST['respond_request'])) {
     <div class="main_column column">
         <?php echo $username; ?>
 
+    
 
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
 
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Оставить запись</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <p>Данная запись появится на стене у пользователя и в его новостной ленте, которую смогут увидеть все друзья</p>
+
+            <form class="profile_post" action="" method="POST">
+                <div class="form-group">
+                    <textarea class="form-control" name="post_body"></textarea>
+                    <input type="hidden" name="user_from" value="<?php echo $userLoggedIn; ?>">
+                    <input type="hidden" name="user_to" value="<?php echo $$username; ?>">
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-primary" name="post_button" id="submit_profile_post">Отправить</button>
+        </div>
+        </div>
+    </div>
+    </div>
 
 
 
